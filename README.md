@@ -2,7 +2,7 @@
 
 Personal portfolio website for Rutgers Business School (Finance & BAIT).
 
-**Live site:** https://YOUR-USERNAME.github.io/
+**Live site:** https://fwk9-alt.github.io/
 
 ## Sections
 - **Personal Statement** — one-sentence introduction
