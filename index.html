@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faisal Khan | Portfolio</title>
+  <meta name="description" content="Faisal Khan — Finance and Business Analytics student at Rutgers Business School, focused on strategy, finance, and data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2340;
+      --navy-2: #1b3a63;
+      --gold: #c9a227;
+      --ink: #1d2433;
+      --muted: #5b6578;
+      --line: #e3e7ee;
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    a { color: var(--navy-2); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(15, 35, 64, 0.97);
+      backdrop-filter: blur(6px);
+    }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+    .logo { font-family: "Fraunces", serif; color: #fff; font-size: 1.2rem; text-decoration: none; }
+    .logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 26px; }
+    nav ul a { color: #d7deea; text-decoration: none; font-size: 0.92rem; font-weight: 500; }
+    nav ul a:hover { color: var(--gold); }
+
+    /* Hero */
+    header.hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: #fff;
+      padding: 96px 0 104px;
+    }
+    .eyebrow { color: var(--gold); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem; }
+    .hero h1 { font-family: "Fraunces", serif; font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.1; margin: 12px 0 22px; }
+    .statement { font-size: clamp(1.1rem, 2.4vw, 1.35rem); max-width: 760px; color: #e6ebf3; }
+    .hero-meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-block; padding: 11px 22px; border-radius: 999px;
+      font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: transform .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: var(--navy); }
+    .btn-outline { border: 1.5px solid #9fb0c8; color: #fff; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    section.alt { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    h2 { font-family: "Fraunces", serif; font-size: 2rem; color: var(--navy); margin-bottom: 8px; }
+    .lead { color: var(--muted); margin-bottom: 36px; max-width: 640px; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+    .skill-group {
+      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px;
+      border-top: 4px solid var(--gold);
+    }
+    .skill-group h3 { font-size: 1rem; color: var(--navy); margin-bottom: 14px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      background: #fff; border: 1px solid var(--line); border-radius: 999px;
+      padding: 5px 12px; font-size: 0.85rem; color: var(--ink);
+    }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+    .project {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 26px; display: flex; flex-direction: column;
+      box-shadow: 0 1px 2px rgba(15,35,64,.04);
+      transition: box-shadow .2s ease, transform .2s ease;
+    }
+    .project:hover { box-shadow: 0 10px 28px rgba(15,35,64,.10); transform: translateY(-3px); }
+    .tag { align-self: flex-start; font-size: 0.75rem; font-weight: 600; color: var(--navy-2); background: #e8eef8; padding: 3px 10px; border-radius: 6px; margin-bottom: 12px; }
+    .project h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: 8px; }
+    .project p { color: var(--muted); font-size: 0.95rem; flex-grow: 1; }
+    .project .tools { margin-top: 14px; font-size: 0.82rem; color: var(--ink); }
+    .project .tools strong { color: var(--navy); }
+    details { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 12px; }
+    summary { cursor: pointer; font-weight: 600; color: var(--navy-2); font-size: 0.92rem; }
+    summary:hover { color: var(--gold); }
+    details ul { margin: 10px 0 0 18px; color: var(--muted); font-size: 0.9rem; }
+    details li { margin-bottom: 6px; }
+
+    /* Experience */
+    .timeline { display: grid; gap: 16px; }
+    .job { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .job:last-child { border-bottom: none; }
+    .job .when { color: var(--muted); font-size: 0.9rem; }
+    .job h3 { font-size: 1.02rem; color: var(--navy); }
+    .job p { color: var(--muted); font-size: 0.93rem; }
+
+    /* Footer */
+    footer { background: var(--navy); color: #c8d2e2; padding: 48px 0; text-align: center; }
+    footer h2 { color: #fff; }
+    footer p { margin: 6px 0 22px; }
+    footer .links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    footer small { display: block; margin-top: 28px; color: #8798b3; }
+
+    @media (max-width: 680px) {
+      nav ul { gap: 14px; }
+      nav ul li.hide-sm { display: none; }
+      .job { grid-template-columns: 1fr; gap: 4px; }
+      section { padding: 60px 0; }
+      header.hero { padding: 72px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="#top" class="logo">Faisal<span>.</span></a>
+      <ul>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li class="hide-sm"><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PERSONAL STATEMENT -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Rutgers Business School · Finance &amp; BAIT</p>
+      <h1>Faisal Khan</h1>
+      <p class="statement">
+        I'm a Finance and Business Analytics student at Rutgers who turns financial analysis and data into strategy, from closing small-business financings to taking a city-infrastructure startup to market.
+      </p>
+      <div class="hero-meta">
+        <a class="btn btn-gold" href="#projects">View my projects</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/faisalwkhan" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SKILLS -->
+  <section id="skills" class="alt">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="lead">What I bring to a strategy, consulting, or finance team.</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Financial Analysis</h3>
+          <div class="chips">
+            <span class="chip">3-Statement Modeling</span>
+            <span class="chip">DCF Valuation</span>
+            <span class="chip">Credit Analysis</span>
+            <span class="chip">Cash Flow Analysis</span>
+            <span class="chip">Debt Structuring</span>
+            <span class="chip">Equity Research</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Data &amp; Technology</h3>
+          <div class="chips">
+            <span class="chip">Excel (advanced)</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">HubSpot CRM</span>
+            <span class="chip">Bloomberg Terminal</span>
+            <span class="chip">HTML / CSS</span>
+            <span class="chip">GitHub</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Strategy &amp; Business</h3>
+          <div class="chips">
+            <span class="chip">Go-to-Market Strategy</span>
+            <span class="chip">Market Sizing</span>
+            <span class="chip">Client Advisory</span>
+            <span class="chip">Pipeline Development</span>
+            <span class="chip">Case Problem Solving</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Communication &amp; Leadership</h3>
+          <div class="chips">
+            <span class="chip">Public Speaking</span>
+            <span class="chip">Pitch Presentations</span>
+            <span class="chip">Charity Auctioneering</span>
+            <span class="chip">Team Leadership</span>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:22px;color:var(--muted);font-size:.9rem;">Certification: Bloomberg Market Concepts (BMC) · Dean's List</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="lead">Selected work across startups, financial modeling, and analysis. Open any project for the full case summary.</p>
+      <div class="projects">
+
+        <article class="project" id="surfacesense">
+          <span class="tag">Startup · 2nd Place, TechStart Rutgers</span>
+          <h3>SurfaceSense: LiDAR Street-Hazard Mapping</h3>
+          <p>A team startup that mounts LiDAR sensors on city vehicles to map potholes and sidewalk damage, then uses AI to rank repairs by urgency so cities can cut injury-lawsuit costs.</p>
+          <p class="tools"><strong>My role:</strong> Go-to-market strategy lead</p>
+          <details>
+            <summary>Read case summary</summary>
+            <ul>
+              <li>Built the go-to-market plan, starting with Princeton, NJ and its local utilities before expanding to other cities.</li>
+              <li>Scoped the market to include city assets plus large utility assets such as poles, roads, and sidewalks.</li>
+              <li>Chose a software-first business model, with sensors riding on existing city vehicles instead of a company-owned fleet.</li>
+              <li>Pitched in a strict 5-minute format with a live dashboard demo and video; placed 2nd at TechStart Rutgers (Oct 2026).</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="project" id="chs-credit">
+          <span class="tag">Financial Modeling</span>
+          <h3>Community Health Systems: Credit &amp; Valuation Analysis</h3>
+          <p>A full credit analysis of a highly leveraged hospital operator, built on a linked three-statement model and a discounted cash flow valuation.</p>
+          <p class="tools"><strong>Tools:</strong> Excel, three-statement model, DCF</p>
+          <details>
+            <summary>Read case summary</summary>
+            <ul>
+              <li>Linked the income statement, balance sheet, and cash flow statement into one integrated model.</li>
+              <li>Built a DCF to estimate enterprise value and test it against the company's debt load.</li>
+              <li>Assessed credit risk through leverage, coverage, and cash flow capacity to service debt.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="project" id="pinterest">
+          <span class="tag">Equity Research · Forte Capital Group</span>
+          <h3>Pinterest: Equity Research Report</h3>
+          <p>An equity research analysis of Pinterest completed during my Investment Research internship, ending in a presentation of my findings.</p>
+          <p class="tools"><strong>Tools:</strong> Excel, financial statements, PowerPoint</p>
+          <details>
+            <summary>Read case summary</summary>
+            <ul>
+              <li>Analyzed three years of Pinterest's financial statements to find trends in revenue, margins, and cash flow.</li>
+              <li>Built supporting financial models to frame the company's performance and outlook.</li>
+              <li>Presented the analysis and conclusions to the program team.</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="project" id="budget-tracker">
+          <span class="tag">Excel Tool</span>
+          <h3>Personal Finance &amp; Budget Tracker</h3>
+          <p>A self-built Excel system that tracks credit card spending and rolls unused weekly budget forward automatically.</p>
+          <p class="tools"><strong>Tools:</strong> Excel formulas, conditional logic, dashboards</p>
+          <details>
+            <summary>Read case summary</summary>
+            <ul>
+              <li>Designed automatic formula logic so new transactions update balances without manual work.</li>
+              <li>Created a weekly rollover budget that carries leftover spending money into the next week.</li>
+              <li>Applied the same approach to an academic tracker covering every degree requirement for my majors.</li>
+            </ul>
+          </details>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <p class="lead">Where I've applied these skills.</p>
+      <div class="timeline">
+        <div class="job">
+          <div class="when">Aug 2026 – Oct 2026</div>
+          <div>
+            <h3>Digital Strategy Intern · Arsenic Digital</h3>
+            <p>Supported digital strategy work for client engagements.</p>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Commercial Finance</div>
+          <div>
+            <h3>Strategic Finance Intern · Block Equity Group</h3>
+            <p>Advised small businesses on $10K–$1M financings; closed a $300K debt consolidation and a $125K financing, and generated 75+ qualified opportunities from 30,000+ prospects in HubSpot.</p>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">May 2025 – Apr 2026</div>
+          <div>
+            <h3>Personal Banker · Provident Bank</h3>
+            <p>Advised clients on accounts, lending, and financial products.</p>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Apr 2025 – Jun 2025</div>
+          <div>
+            <h3>Investment Research Intern · Forte Capital Group</h3>
+            <p>Analyzed company financials and presented equity research on Pinterest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact">
+    <div class="wrap">
+      <h2>Let's connect</h2>
+      <p>Open to Summer 2027 internships in strategy consulting and finance.</p>
+      <div class="links">
+        <a class="btn btn-gold" href="https://www.linkedin.com/in/faisalwkhan" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-outline" href="#top">Back to top</a>
+      </div>
+      <small>© 2026 Faisal Khan · Built with HTML &amp; CSS, hosted on GitHub Pages</small>
+    </div>
+  </footer>
+
+</body>
+</html>
